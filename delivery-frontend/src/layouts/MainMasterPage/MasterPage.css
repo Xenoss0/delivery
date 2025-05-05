@@ -1,0 +1,17 @@
+.master-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content-area {
+  flex: 1;
+  margin-left: 78px;
+  transition: margin-left 0.5s ease;
+  background-color: #e4e9f7;
+  min-height: 100vh;
+}
+
+/* When sidebar is open, adjust the content area */
+.sidebar.open ~ .content-area {
+  margin-left: 250px;
+}
