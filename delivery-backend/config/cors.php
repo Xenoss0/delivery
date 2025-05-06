@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173'], // Update with your frontend URL
+    'allowed_origins' => ['http://localhost:5173'], // Correction des guillemets
 
     'allowed_origins_patterns' => [],
 
@@ -29,5 +29,5 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true, // Important for cookies/authentication
+    'supports_credentials' => true, // Important pour cookies/authentication
 ];
