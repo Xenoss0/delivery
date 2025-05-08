@@ -65,10 +65,4 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
-
-    // Remove or comment out this property as it's now deprecated
-    // protected $routeMiddleware = [
-    //     // ...
-    //     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-    // ];
 }

@@ -66,9 +66,10 @@ class AuthController extends Controller
                 'password' => 'required|string',
             ]);
             
-            $user = User::login($validated['email'], $validated['password']);
+            // Check if the user exists
+            $user = User::where('email', $validated['email'])->first();
             
-            if (!$user) {
+            if (!$user || !Hash::check($validated['password'], $user->password)) {
                 return response()->json([
                     'message' => 'Identifiants invalides'
                 ], 401);
@@ -90,7 +91,7 @@ class AuthController extends Controller
             return response()->json(['errors' => $e->errors()], 422);
         } catch (\Exception $e) {
             Log::error('Error during login: ' . $e->getMessage());
-            return response()->json(['message' => 'Une erreur est survenue lors de la connexion'], 500);
+            return response()->json(['message' => 'Une erreur est survenue lors de la connexion: ' . $e->getMessage()], 500);
         }
     }
 
